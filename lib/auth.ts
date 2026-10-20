@@ -16,6 +16,12 @@ export const auth = betterAuth({
 
   user: {
     modelName: "users",
+    additionalFields: {
+      bio: { type: "string", required: false },
+      avatarUrl: { type: "string", required: false },
+      githubUrl: { type: "string", required: false },
+      linkedinUrl: { type: "string", required: false },
+    },
   },
 
   emailAndPassword: {

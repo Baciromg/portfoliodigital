@@ -23,8 +23,12 @@ export const projects = sqliteTable("projects", {
   imageUrl: text("image_url"),
   githubUrl: text("github_url"),
   liveUrl: text("live_url"),
-  createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
-  updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp_ms" })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp_ms" })
+    .notNull()
+    .$defaultFn(() => new Date()),
 });
 
 export const projectTechnologies = sqliteTable("project_technologies", {
